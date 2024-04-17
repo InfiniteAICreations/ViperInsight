@@ -12,3 +12,20 @@ Let the viper's watchful gaze guide you towards a healthier, more balanced digit
 - Historical trend analysis to identify usage patterns over time
 - Customizable alerts and notifications to help manage screen time effectively
 
+## Quick Start
+
+```bash
+git clone git@github.com:InfiniteAICreations/ViperInsight.git
+cd ViperInsight
+pip install -r requirements.txt
+export OPENAI_API_KEY=sk-proj-1234567890
+python viperinsight/main.py
+```
+
+The screenshot and response will be saved in the `datasets` directory.
+
+## Use Cases
+
+![usecase](assets/usecase.png)
+
+I don't know why it concludes the topmost application is `Visual Studio Code` 🤔
