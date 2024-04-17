@@ -34,5 +34,12 @@ Result:
 
 I don't know why it concludes the topmost application is `Visual Studio Code` 🤔
 
+## TODO
+- [ ] Add Anthropic API or other powerful multi-models.
+- [ ] Fined-tune the prompt.
+- [ ] Timing screenshot and analysis.
+- [ ] Output statistics.
+- [ ] Consider the tokens cost.
+
 ## License
 Released under the [MIT License](LICENSE).
