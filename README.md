@@ -26,6 +26,13 @@ The screenshot and response will be saved in the `datasets` directory.
 
 ## Use Cases
 
-![usecase](assets/usecase.png)
+Screenshot:
+![Screenshot](assets/screenshot.png)
+
+Result:
+![UseCase](assets/usecase.png)
 
 I don't know why it concludes the topmost application is `Visual Studio Code` 🤔
+
+## License
+Released under the [MIT License](LICENSE).
