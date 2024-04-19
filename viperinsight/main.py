@@ -1,9 +1,9 @@
 import base64
 import json
+import logging
 import os
 import tempfile
 import time
-import logging
 
 import requests
 from PIL import ImageGrab
@@ -77,24 +77,28 @@ def main():
     logging.info(f"Screenshot recorded at {image_path}")
 
     # get response
-    response = get_response(prompt, base64_image)
-    # save response to file
-    with open(f"{sample_path}/response.txt", "w") as f:
-        f.write(json.dumps(response, indent=4))
+    response_from_openai = get_response(prompt, base64_image)
 
     print("-" * 30)
-    print(response)
+    print(response_from_openai)
     print("-" * 30)
 
-    total_tokens = response["usage"]["total_tokens"]
+    total_tokens = response_from_openai["usage"]["total_tokens"]
     print("Total Tokens: ", total_tokens)
-    content = response["choices"][0]["message"]["content"]
+    content = response_from_openai["choices"][0]["message"]["content"]
 
     print("-" * 30)
     res = content.split("\n")
     print(f"Main Opened Applications: {res[0]}")
     print(f"Cursor Focus on: {res[1]}")
     print("-" * 30)
+
+    response = dict()
+    response['openai'] = response_from_openai
+    response['focus_cursor'] = res[1]
+    # save response to file
+    with open(f"{sample_path}/response.json", "w") as f:
+        f.write(json.dumps(response, indent=4))
 
 
 if __name__ == "__main__":
