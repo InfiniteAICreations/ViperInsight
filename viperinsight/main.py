@@ -3,6 +3,7 @@ import json
 import os
 import tempfile
 import time
+import logging
 
 import requests
 from PIL import ImageGrab
@@ -57,6 +58,7 @@ def get_response(prompt: str, base64_image: str):
 
 
 def main():
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     prompt = (
         "You are good at recognizing applications from screenshots. "
         "You will notice every opened application's window edge to determine the application whether overlapped or not."
@@ -72,6 +74,7 @@ def main():
     # capture screen
     image_path = capture_screen(f"{sample_path}/screenshot.png")
     base64_image = encode_image(image_path)
+    logging.info(f"Screenshot recorded at {image_path}")
 
     # get response
     response = get_response(prompt, base64_image)
